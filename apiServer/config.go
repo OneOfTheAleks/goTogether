@@ -1,7 +1,9 @@
 package apiServer
 
 type Config struct {
-	BindAdrr string
+
+		BindAdrr string `yaml:"adrr"`
+
 }
 
 func NewConfig() *Config  {
