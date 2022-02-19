@@ -39,7 +39,10 @@ func main() {
 
 	s := apiServer.New(config)
 	if err := s.Start(); err != nil {
-		logger.Error("Can't run server")
+		logger.Error(
+			"Can't run server",
+			zap.String("apiServer","Run"),
+			zap.Error(err))
 		//log.Fatal(err)
 	}
 }
