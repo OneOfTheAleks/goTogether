@@ -32,6 +32,7 @@
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="vcs.Mercurial" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -60,21 +61,62 @@
     <integration-enabled>true</integration-enabled>
   </component>
   <component name="WindowStateProjectService">
-    <state width="1874" height="265" key="GridCell.Tab.0.bottom" timestamp="1645037676119">
+    <state width="1874" height="265" key="GridCell.Tab.0.bottom" timestamp="1645118539175">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state width="1874" height="265" key="GridCell.Tab.0.bottom/0.0.2560.1040@0.0.2560.1040" timestamp="1645037676119" />
-    <state width="1874" height="265" key="GridCell.Tab.0.center" timestamp="1645037676118">
+    <state width="1874" height="265" key="GridCell.Tab.0.bottom/0.0.2560.1040@0.0.2560.1040" timestamp="1645118539175" />
+    <state width="1874" height="265" key="GridCell.Tab.0.center" timestamp="1645118539175">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state width="1874" height="265" key="GridCell.Tab.0.center/0.0.2560.1040@0.0.2560.1040" timestamp="1645037676118" />
-    <state width="1874" height="265" key="GridCell.Tab.0.left" timestamp="1645037676118">
+    <state width="1874" height="265" key="GridCell.Tab.0.center/0.0.2560.1040@0.0.2560.1040" timestamp="1645118539175" />
+    <state width="1874" height="265" key="GridCell.Tab.0.left" timestamp="1645118539175">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state width="1874" height="265" key="GridCell.Tab.0.left/0.0.2560.1040@0.0.2560.1040" timestamp="1645037676118" />
-    <state width="1874" height="265" key="GridCell.Tab.0.right" timestamp="1645037676119">
+    <state width="1874" height="265" key="GridCell.Tab.0.left/0.0.2560.1040@0.0.2560.1040" timestamp="1645118539175" />
+    <state width="1874" height="265" key="GridCell.Tab.0.right" timestamp="1645118539175">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state width="1874" height="265" key="GridCell.Tab.0.right/0.0.2560.1040@0.0.2560.1040" timestamp="1645037676119" />
+    <state width="1874" height="265" key="GridCell.Tab.0.right/0.0.2560.1040@0.0.2560.1040" timestamp="1645118539175" />
+    <state width="1874" height="328" key="GridCell.Tab.1.bottom" timestamp="1645118539171">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state width="1874" height="328" key="GridCell.Tab.1.bottom/0.0.2560.1040@0.0.2560.1040" timestamp="1645118539171" />
+    <state width="1874" height="328" key="GridCell.Tab.1.center" timestamp="1645118539171">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state width="1874" height="328" key="GridCell.Tab.1.center/0.0.2560.1040@0.0.2560.1040" timestamp="1645118539171" />
+    <state width="1874" height="328" key="GridCell.Tab.1.left" timestamp="1645118539171">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state width="1874" height="328" key="GridCell.Tab.1.left/0.0.2560.1040@0.0.2560.1040" timestamp="1645118539171" />
+    <state width="1874" height="328" key="GridCell.Tab.1.right" timestamp="1645118539171">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state width="1874" height="328" key="GridCell.Tab.1.right/0.0.2560.1040@0.0.2560.1040" timestamp="1645118539171" />
+    <state x="789" y="182" key="SettingsEditor" timestamp="1645044011320">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state x="789" y="182" key="SettingsEditor/0.0.2560.1040@0.0.2560.1040" timestamp="1645044011320" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/main.go</url>
+          <line>39</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/apiServer/apiServer.go</url>
+          <line>26</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="GoApplicationRunConfiguration">
+        <watch expression="C" language="go" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>
