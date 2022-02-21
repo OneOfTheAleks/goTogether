@@ -48,6 +48,7 @@ func main() {
 
 	config := apiServer.NewConfig()
 	//   C:=&config
+
 	yamlFile, err := ioutil.ReadFile(configPath)
 	if err != nil {
 		log.Printf("yamlFile.Get err   #%v ", err)
@@ -57,6 +58,7 @@ func main() {
 	if err != nil {
 		log.Fatalf("Unmarshal: %v", err)
 	}
+
 
 	s := apiServer.New(config)
 	if err := s.Start(); err != nil {

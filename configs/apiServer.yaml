@@ -1,1 +1,3 @@
- adrr: "8081"
+adrr: :8081
+store:
+  DataBaseUrl: "host=localhost dbname=my sslmode = disable"
