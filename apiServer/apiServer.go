@@ -1,6 +1,7 @@
 package apiServer
 
 import (
+	apilogger "GoTogether/apiLogger"
 	"GoTogether/store"
 	"github.com/gorilla/mux"
 	"net/http"
@@ -8,7 +9,7 @@ import (
 
 type ApiServer struct {
 	config *Config
-	//logger *zap.Logger
+	logger *apilogger.ApiLogger
 	router *mux.Router
 	Store *store.Store
 
@@ -17,7 +18,7 @@ type ApiServer struct {
 func New(config *Config) *ApiServer {
 	return &ApiServer{
 		config: config,
-		//	logger: zap.Logger{}
+		//	apiLogger: zap.Logger{}
 		router: mux.NewRouter(),
 	}
 }
@@ -26,9 +27,15 @@ func (s *ApiServer) Start() error {
 
 	s.ConfigureRouter()
 
-	if err:= s.ConfigureStore(); err!=nil{
-
+	if err:=s.ConfigureLogger(); err!= nil{
+		return err
 	}
+
+	if err:= s.ConfigureStore(); err!=nil{
+      return err
+	}
+
+
 
 	return http.ListenAndServe(s.config.BindAdrr, s.router)
 }
@@ -46,3 +53,10 @@ func (s *ApiServer)ConfigureStore() error {
 	return nil
 }
 
+func (s *ApiServer)ConfigureLogger() error  {
+   lg := apilogger.NewApiLogger(s.config.Logger)
+   if err :=lg.Create(); err != nil{
+   	return err
+	}
+	return nil
+}

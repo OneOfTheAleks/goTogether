@@ -2,52 +2,33 @@ package main
 
 import (
 	"GoTogether/apiServer"
+	"fmt"
+	_ "github.com/jackc/pgx/v4"
 	"go.uber.org/zap"
-	"go.uber.org/zap/zapcore"
 	"gopkg.in/yaml.v2"
 	"io/ioutil"
 	"log"
-	"os"
 )
 
 var configPath string
-var logPath    string
+//var logPath    string
 
 func init() {
 	configPath = "configs/apiServer.yaml"
-	logPath     = "logs/log.json"
-	createLog(logPath)
+//	logPath     = "logs/log.json"
+//	createLog(logPath)
 }
 
 func main() {
 
-	cfg := zap.Config{
-		Encoding:    "json",
-		Level:       zap.NewAtomicLevelAt(zapcore.ErrorLevel),
-		OutputPaths: []string{logPath},
-		EncoderConfig: zapcore.EncoderConfig{
-			MessageKey: "message",
-
-			LevelKey:    "level",
-			EncodeLevel: zapcore.CapitalLevelEncoder,
-
-			TimeKey:    "time",
-			EncodeTime: zapcore.ISO8601TimeEncoder,
-
-			CallerKey:    "caller",
-			EncodeCaller: zapcore.ShortCallerEncoder,
-		},
-	}
-	logger, err := cfg.Build()
-	if err != nil {
-		log.Fatal(err)
-
-	}
-	//logger,_ := zap.NewProduction()
-	//defer logger.Sync()
 
 	config := apiServer.NewConfig()
 	//   C:=&config
+
+	//c:= yaml.Marshal(config)
+	d, err := yaml.Marshal(&config)
+
+	fmt.Println(d)
 
 	yamlFile, err := ioutil.ReadFile(configPath)
 	if err != nil {
@@ -62,16 +43,13 @@ func main() {
 
 	s := apiServer.New(config)
 	if err := s.Start(); err != nil {
-	//	logger.Error(
+	//	apiLogger.Error(
 	//		"Can't run server",
 	//		zap.String("apiServer", "Run"),
 	//		zap.Error(err))
 
-			addLog(logger,
-				"Can't run server",
-				"apiServer",
-				"Run",
-				err)
+		//	addServerLog(config.Logger.,err)
+		fmt.Println(err)
 	}
 }
 
@@ -84,13 +62,12 @@ func addLog(log *zap.Logger, msg string, k string, v string, err error) {
 		zap.Error(err))
 }
 
-func createLog(logP string) error {
-	_, err := os.Open(logP)
-	if err != nil {
-		_, err := os.Create(logP)
-		if err != nil {
-			return err
-		}
-	}
-	return nil
+func addServerLog(log *zap.Logger,err error)  {
+	errString := "Api server error"
+	log.Error(
+		errString,
+		zap.Error(err),
+		)
+
 }
+
