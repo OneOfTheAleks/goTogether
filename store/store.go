@@ -8,8 +8,8 @@ import (
 
 type Store struct {
 	config *Config
-	//db *sqlx.DB
 	db *pgxpool.Pool
+	UserRepo *UserRepo
 }
 
 func New(config *Config) *Store { //Store
@@ -18,7 +18,7 @@ func New(config *Config) *Store { //Store
 	}
 }
 
-func (s *Store) Open() error {
+func (s *Store) Open(ctx context.Context) error {
 	/*	 db, err := sqlx.Connect("pgx", s.config.DataBaseUrl)
 	if err != nil {
 		return err
@@ -28,18 +28,31 @@ func (s *Store) Open() error {
 	if err != nil {
 		return err
 	}
-	ctx := context.Background()
+	//ctx = context.Background()
 	pool, err := pgxpool.ConnectConfig(ctx, cfg)
 	if err != nil {
 		return err
 	}
 
 	err = pool.Ping(ctx)
-
+    if err != nil{
+    	return err
+	}
 	s.db = pool
 	return nil
 }
 
 func (s *Store) Close() {
 	s.db.Close()
+}
+
+func (s *Store) User () *UserRepo {
+	if s.UserRepo != nil{
+		return s.UserRepo
+	}
+	s.UserRepo = &UserRepo{
+		store: s,
+	}
+return s.UserRepo
+
 }
