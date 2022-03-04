@@ -20,15 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d7763442-4aa3-49e0-83e1-f3ac8ec2bbc4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/model/user.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/store/store_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/store/testing.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/store/uRepository.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/store/uRepository_test.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/store.go" beforeDir="false" afterPath="$PROJECT_DIR$/store/store.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/uRepository.go" beforeDir="false" afterPath="$PROJECT_DIR$/store/uRepository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/uRepository_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/store/uRepository_test.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +65,7 @@
       <recent name="E:\Project\GoTogether" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Test.TestUserRepo_Create in GoTogether/store">
+  <component name="RunManager" selected="Go Test.TestUserRepo_FindByEmail in GoTogether/store">
     <configuration name="go build GoTogether" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="GoTogether" />
       <working_directory value="$PROJECT_DIR$" />
@@ -91,8 +85,20 @@
       <pattern value="^TestUserRepo_Create$" />
       <method v="2" />
     </configuration>
+    <configuration name="TestUserRepo_FindByEmail in GoTogether/store" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="GoTogether" />
+      <working_directory value="$PROJECT_DIR$/store" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="GoTogether/store" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/" />
+      <pattern value="^TestUserRepo_FindByEmail$" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Test.TestUserRepo_FindByEmail in GoTogether/store" />
         <item itemvalue="Go Test.TestUserRepo_Create in GoTogether/store" />
         <item itemvalue="Go Build.go build GoTogether" />
       </list>
@@ -129,38 +135,38 @@
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="1232" y="267" key="#com.intellij.ide.util.MemberChooser/0.0.2560.1040@0.0.2560.1040" timestamp="1645696420379" />
-    <state width="1874" height="211" key="GridCell.Tab.0.bottom" timestamp="1646393178578">
+    <state width="1874" height="262" key="GridCell.Tab.0.bottom" timestamp="1646413388729">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state width="1874" height="211" key="GridCell.Tab.0.bottom/0.0.2560.1040@0.0.2560.1040" timestamp="1646393178577" />
-    <state width="1874" height="211" key="GridCell.Tab.0.center" timestamp="1646393178577">
+    <state width="1874" height="262" key="GridCell.Tab.0.bottom/0.0.2560.1040@0.0.2560.1040" timestamp="1646413388729" />
+    <state width="1874" height="262" key="GridCell.Tab.0.center" timestamp="1646413388729">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state width="1874" height="211" key="GridCell.Tab.0.center/0.0.2560.1040@0.0.2560.1040" timestamp="1646393178577" />
-    <state width="1874" height="211" key="GridCell.Tab.0.left" timestamp="1646393178577">
+    <state width="1874" height="262" key="GridCell.Tab.0.center/0.0.2560.1040@0.0.2560.1040" timestamp="1646413388729" />
+    <state width="1874" height="262" key="GridCell.Tab.0.left" timestamp="1646413388729">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state width="1874" height="211" key="GridCell.Tab.0.left/0.0.2560.1040@0.0.2560.1040" timestamp="1646393178577" />
-    <state width="1874" height="211" key="GridCell.Tab.0.right" timestamp="1646393178577">
+    <state width="1874" height="262" key="GridCell.Tab.0.left/0.0.2560.1040@0.0.2560.1040" timestamp="1646413388729" />
+    <state width="1874" height="262" key="GridCell.Tab.0.right" timestamp="1646413388729">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state width="1874" height="211" key="GridCell.Tab.0.right/0.0.2560.1040@0.0.2560.1040" timestamp="1646393178577" />
-    <state width="1874" height="262" key="GridCell.Tab.1.bottom" timestamp="1646392608371">
+    <state width="1874" height="262" key="GridCell.Tab.0.right/0.0.2560.1040@0.0.2560.1040" timestamp="1646413388729" />
+    <state width="1874" height="262" key="GridCell.Tab.1.bottom" timestamp="1646413388729">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state width="1874" height="262" key="GridCell.Tab.1.bottom/0.0.2560.1040@0.0.2560.1040" timestamp="1646392608371" />
-    <state width="1874" height="262" key="GridCell.Tab.1.center" timestamp="1646392608371">
+    <state width="1874" height="262" key="GridCell.Tab.1.bottom/0.0.2560.1040@0.0.2560.1040" timestamp="1646413388729" />
+    <state width="1874" height="262" key="GridCell.Tab.1.center" timestamp="1646413388729">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state width="1874" height="262" key="GridCell.Tab.1.center/0.0.2560.1040@0.0.2560.1040" timestamp="1646392608371" />
-    <state width="1874" height="262" key="GridCell.Tab.1.left" timestamp="1646392608371">
+    <state width="1874" height="262" key="GridCell.Tab.1.center/0.0.2560.1040@0.0.2560.1040" timestamp="1646413388729" />
+    <state width="1874" height="262" key="GridCell.Tab.1.left" timestamp="1646413388729">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state width="1874" height="262" key="GridCell.Tab.1.left/0.0.2560.1040@0.0.2560.1040" timestamp="1646392608371" />
-    <state width="1874" height="262" key="GridCell.Tab.1.right" timestamp="1646392608371">
+    <state width="1874" height="262" key="GridCell.Tab.1.left/0.0.2560.1040@0.0.2560.1040" timestamp="1646413388729" />
+    <state width="1874" height="262" key="GridCell.Tab.1.right" timestamp="1646413388729">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state width="1874" height="262" key="GridCell.Tab.1.right/0.0.2560.1040@0.0.2560.1040" timestamp="1646392608371" />
+    <state width="1874" height="262" key="GridCell.Tab.1.right/0.0.2560.1040@0.0.2560.1040" timestamp="1646413388729" />
     <state x="789" y="182" key="SettingsEditor" timestamp="1645044011320">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
@@ -189,24 +195,9 @@
           <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/store/uRepository_test.go</url>
-          <line>22</line>
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/store/uRepository.go</url>
           <line>14</line>
           <option name="timeStamp" value="29" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/store/uRepository_test.go</url>
-          <line>11</line>
-          <option name="timeStamp" value="31" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/store/uRepository_test.go</url>
-          <line>13</line>
-          <option name="timeStamp" value="32" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/store/store.go</url>

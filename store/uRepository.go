@@ -20,6 +20,11 @@ func (r * UserRepo) Create (u *model.User,ctx context.Context)(*model.User, erro
 	return u,nil
 }
 
-func (r *UserRepo) FindByEmail(email string)(*model.User,error){
-	return nil, nil
+func (r *UserRepo) FindByEmail(email string,ctx context.Context)(*model.User,error){
+	u :=&model.User{}
+	sqlString:= "SELECT id, email, password FROM users WHERE email = $1"
+	if err:= r.store.db.QueryRow(ctx,sqlString,email).Scan(&u.Id,&u.Email,&u.Password);err != nil{
+		return nil, err
+	}
+	return u, nil
 }
