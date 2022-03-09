@@ -3,15 +3,18 @@ package apiServer
 import (
 	apilogger "GoTogether/apiLogger"
 	"GoTogether/store"
+	"context"
 	"github.com/gorilla/mux"
+	"go.uber.org/zap"
 	"net/http"
 )
 
 type ApiServer struct {
 	config *Config
-	logger *apilogger.ApiLogger
+	//logger *apilogger.ApiLogger
 	router *mux.Router
 	Store *store.Store
+	loger *zap.Logger
 
 }
 
@@ -24,14 +27,14 @@ func New(config *Config) *ApiServer {
 }
 
 func (s *ApiServer) Start() error {
-
+    ctx:= context.Background()
 	s.ConfigureRouter()
 
 	if err:=s.ConfigureLogger(); err!= nil{
 		return err
 	}
 
-	if err:= s.ConfigureStore(); err!=nil{
+	if err:= s.ConfigureStore(ctx); err!=nil{
       return err
 	}
 
@@ -44,9 +47,9 @@ func (s *ApiServer) ConfigureRouter() {
 	s.router.HandleFunc("/", s.HandleRoot())
 }
 
-func (s *ApiServer)ConfigureStore() error {
+func (s *ApiServer)ConfigureStore(ctx context.Context) error {
   st:= store.New(s.config.Store)
-  if err:= st.Open(); err !=nil {
+  if err:= st.Open(ctx); err !=nil {
   	return err
   }
   s.Store = st
@@ -58,5 +61,6 @@ func (s *ApiServer)ConfigureLogger() error  {
    if err :=lg.Create(); err != nil{
    	return err
 	}
+	s.loger = lg.Logger
 	return nil
 }

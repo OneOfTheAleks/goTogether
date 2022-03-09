@@ -11,14 +11,11 @@ import (
 func TestUserRepo_Create(t *testing.T) {
 	s,teardown := store.TestStore(t,dataBaseUrl)
 	defer teardown("users")
-     var ctx context.Context
-     ctx= context.TODO()
-    // ctx, _ =context.WithTimeout(ctx,3*time.Second)
+
+    ctx:= context.TODO()
 
 	u,err := s.User().Create(
-		&model.User{
-		Email: "test@mail.ru",
-	     },
+		model.TestUser(t),
 	     ctx,
 	)
 	assert.NoError(t,err)

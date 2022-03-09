@@ -9,7 +9,7 @@ import (
 
 type ApiLogger struct {
 	logConfig *LogConfig
-	logger *zap.Logger
+	Logger    *zap.Logger
 }
 
 func NewApiLogger(logConfig *LogConfig) *ApiLogger {
@@ -43,7 +43,7 @@ func (s *ApiLogger) Create() error {
 		log.Fatal(err)
 
 	}
-	s.logger = apiLogger
+	s.Logger = apiLogger
 	return nil
 }
 
