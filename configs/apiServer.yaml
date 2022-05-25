@@ -1,6 +1,4 @@
 adrr: ":8081"
-Logger:
-  logPath: "logs/log2.json"
-store:
-  DataBaseUrl: "user=web password=123 host=localhost port=5432 dbname=postgres sslmode=disable pool_max_conns=10"
+logPath: "logs/log2.json"
+DataBaseUrl: "user=postgres password=web host=localhost port=5432 dbname=postgres sslmode=disable pool_max_conns=10"
 
