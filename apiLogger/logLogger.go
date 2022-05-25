@@ -7,19 +7,12 @@ import (
 	"os"
 )
 
-type ApiLogger struct {
-	logConfig *LogConfig
-	Logger    *zap.Logger
-}
 
-func NewApiLogger(logConfig *LogConfig) *ApiLogger {
-	return &ApiLogger{
-		logConfig: logConfig,
-	}
-}
 
-func (s *ApiLogger) Create() error {
-	logPath :=s.logConfig.logPath
+func CreateLogger() *zap.Logger {
+	logPath     := "../logs/log.json"
+	//logPath     := "logs/log.json"
+
 	createLog(logPath)
 	cfg := zap.Config{
 		Encoding:    "json",
@@ -43,9 +36,11 @@ func (s *ApiLogger) Create() error {
 		log.Fatal(err)
 
 	}
-	s.Logger = apiLogger
-	return nil
+	return apiLogger
+
 }
+
+
 
 func createLog(logP string) error {
 	_, err := os.Open(logP)
