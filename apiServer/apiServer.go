@@ -1,66 +1,40 @@
 package apiServer
 
 import (
-	apilogger "GoTogether/apiLogger"
-	"GoTogether/store"
+	"GoTogether/store/sqlStore"
 	"context"
-	"github.com/gorilla/mux"
-	"go.uber.org/zap"
+	"github.com/jackc/pgx/v4/pgxpool"
 	"net/http"
 )
 
-type ApiServer struct {
-	config *Config
-	//logger *apilogger.ApiLogger
-	router *mux.Router
-	Store *store.Store
-	loger *zap.Logger
+func Start(config *Config) error {
 
-}
-
-func New(config *Config) *ApiServer {
-	return &ApiServer{
-		config: config,
-		//	apiLogger: zap.Logger{}
-		router: mux.NewRouter(),
-	}
-}
-
-func (s *ApiServer) Start() error {
-    ctx:= context.Background()
-	s.ConfigureRouter()
-
-	if err:=s.ConfigureLogger(); err!= nil{
+	db, err := newDb(config.DataBaseUrl)
+	if err !=nil {
 		return err
 	}
+	defer db.Close()
 
-	if err:= s.ConfigureStore(ctx); err!=nil{
-      return err
+   store:= sqlStore.New(db)
+   srv:= NewServer(store)
+
+	return http.ListenAndServe(config.BindAdrr,srv)
+}
+
+func newDb(DataBaseUrl string)(*pgxpool.Pool,error){
+	ctx := context.Background()
+	cfg, err := pgxpool.ParseConfig(DataBaseUrl)
+	if err != nil {
+		return nil,err
 	}
 
-
-
-	return http.ListenAndServe(s.config.BindAdrr, s.router)
-}
-
-func (s *ApiServer) ConfigureRouter() {
-	s.router.HandleFunc("/", s.HandleRoot())
-}
-
-func (s *ApiServer)ConfigureStore(ctx context.Context) error {
-  st:= store.New(s.config.Store)
-  if err:= st.Open(ctx); err !=nil {
-  	return err
-  }
-  s.Store = st
-	return nil
-}
-
-func (s *ApiServer)ConfigureLogger() error  {
-   lg := apilogger.NewApiLogger(s.config.Logger)
-   if err :=lg.Create(); err != nil{
-   	return err
+  db, err := pgxpool.ConnectConfig(ctx, cfg)
+	if err != nil {
+		return  nil,err
 	}
-	s.loger = lg.Logger
-	return nil
+
+	if err:= db.Ping(ctx); err != nil{
+		return nil,err
+	}
+	return db,nil
 }
